@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import './Tournaments.css'
 import NavBar from './NavBar';
 import Footer from './Footer'
+
 function Tournaments() {
 
     useEffect(() => {
@@ -13,6 +15,17 @@ function Tournaments() {
         <>
             <div id="navbar-container">
                 <NavBar />
+            </div>
+
+            <div id="create-tournament-container">
+                <div id="create-tournament">
+                    <div id="create-tournament-btn">
+                        <Link id="" to="/CreateEvent">Organize an Event</Link>
+                    </div>
+                    <button id="create-tournament-btn">
+                        Find Events
+                    </button>
+                </div>
             </div>
 
             <div id="upcoming-tournaments-container">

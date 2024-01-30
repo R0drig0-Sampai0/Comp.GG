@@ -1,3 +1,48 @@
+#create-tournament-container {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid white;
+}
+
+#create-tournament {
+    margin-top: 20px;
+}
+
+#create-tournament-btn {
+    font-family: monospace;
+    font-size: 22px;
+    margin: 0;
+    color: #242424;
+    background-color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+#create-tournament-btn:hover {
+    background-color: #242424;
+    color: white; 
+    border: 2px solid white;
+}
+
+#links {
+    color: #fff;
+    align-items: center;
+    text-decoration: none;
+    height: 60%;
+    position: relative;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 /*UPCOMING TOURNAMENTS*/
 #upcoming-tournaments-container {
     background: #242424;
