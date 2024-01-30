@@ -1,0 +1,82 @@
+#footer-container {
+    position: relative;
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    height: 100px;
+    width: 100%;
+    padding-bottom: 50px; 
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.social-media-container {
+    display: flex;
+    padding: 20px;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 20px; 
+}
+
+.social-link:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.icon-instagram:hover {
+    color: #e4405f;
+}
+
+.icon-discord:hover {
+    color: #7289da;
+}
+
+.icon-twitch:hover {
+    color: #6441a5;
+}
+
+.icon-instagram,
+.icon-discord,
+.icon-twitch {
+    font-size: 30px;
+    color: white;
+}
+
+.copyright {
+    display: block;
+    padding: 5px 0;
+    color: white;
+    font-family: monospace;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.dot {
+    color: white;
+    margin: 0 3px;
+}

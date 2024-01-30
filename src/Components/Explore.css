@@ -1,0 +1,65 @@
+#news-container {
+    background: #242424;
+    color: white;
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+h1 {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-left: 4%;
+}
+
+.box-main-news {
+    background: white; 
+    color: #242424;
+    opacity: 1;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-right: 20px; /* Adjust as needed for spacing between boxes */
+    margin-bottom: 0px;
+    height: 380px;
+    width: 550px; /* Adjust as needed for the width of each box */
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.box-news {
+    background: white; 
+    color: #242424;
+    opacity: 1;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-right: 30px; /* Adjust as needed for spacing between boxes */
+    margin-bottom: 0px;
+    height: 380px;
+    width: 250px; /* Adjust as needed for the width of each box */
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.box-news:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.box-main-news:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.box-upcoming-tournaments h2 {
+    margin-bottom: 10px;
+}
