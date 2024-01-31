@@ -58,38 +58,25 @@ const handleSearch = () => {
 
             <div id="upcoming-tournaments-container">
                 <h1>Upcoming Tournaments</h1>
-                {filteredTournaments.length > 0 ? (
-                    filteredTournaments.map(tournament => (
-                        <div key={tournament.id} className="box-upcoming-tournaments">
-                            <h2>{tournament.name}</h2>
-                        </div>
-                    ))
-                ) : (
-                    tournaments.map(tournament => (
-                        <div key={tournament.id} className="box-upcoming-tournaments">
-                            <h2>{tournament.name}</h2>
-                        </div>
-                    ))
-                )}
                 
                 <div className="box-upcoming-tournaments">
-                    <h2>Tournament 1</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-upcoming-tournaments">
-                    <h2>Apex de merda</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-upcoming-tournaments">
-                    <h2>Rocket é incrível</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-upcoming-tournaments">
-                    <h2>Pavelski lover</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-upcoming-tournaments">
-                    <h2>Subscription</h2>
+                    <h2>Tournament</h2>
                 </div>
             </div>
             
@@ -97,23 +84,23 @@ const handleSearch = () => {
                 <h1>Live Tournaments</h1>
 
                 <div className="box-live-tournaments">
-                    <h2>Antes assim do que assado</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-live-tournaments">
-                    <h2>Antigamente é que era</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-live-tournaments">
-                    <h2>O Rodrigo é linde</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-live-tournaments">
-                    <h2>Rodrigo carrega-me</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-live-tournaments">
-                    <h2>Estamos na merda</h2>
+                    <h2>Tournament</h2>
                 </div>
             </div>
 
@@ -121,23 +108,23 @@ const handleSearch = () => {
                 <h1>Recently Finished</h1>
 
                 <div className="box-finished-tournaments">
-                    <h2>Tivesses vindo a tempo</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-finished-tournaments">
-                    <h2>Já acabou seu boi</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-finished-tournaments">
-                    <h2>Jantastes e não te inscreveste</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-finished-tournaments">
-                    <h2>A pé e uns de carro</h2>
+                    <h2>Tournament</h2>
                 </div>
 
                 <div className="box-finished-tournaments">
-                    <h2>Tournament 5</h2>
+                    <h2>Tournament</h2>
                 </div>
             </div>
 
