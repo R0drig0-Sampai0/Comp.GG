@@ -21,41 +21,30 @@ function SignUpForm() {
 
     /*----------------------------------------------- SIGN UP ------------------------------------------------------------------*/
     const addUser = () => {
-        let body = {
-            userLogin: {
-                username: newUsername,
-                email: newEmail,
-                password: newPassword
-            }
-        };
-
-        console.log("Request Body:", JSON.stringify(body));
-
-        fetch("https://api.sheety.co/037d88aaecba761271a0507a7ef574e9/user/userLogin", {
+        fetch("https://sheetdb.io/api/v1/e5yzqf59suepx?sheet=User_Login", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify({
+                data: [
+                    {
+                        Username: newUsername,
+                        Password: newPassword,
+                        Email: newEmail
+                    }
+                ]
+            })
         })
             .then((response) => response.json())
-            .then(json => {
-                console.log("Response:", json);
-                if (json.errors) {
-                    console.error("Error adding user:", json.errors);
-                } else {
-                    console.log("User added successfully:", json.userLogin);
-                    navigate('/');
-                }
+            .then((data) => {
+                console.log(data);
+                navigate('/LogIn')
             })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-    };
+    }
 
     useEffect(() => {
-        // Scroll to the top of the page when the component mounts
         window.scrollTo(0, 0);
     }, []);
 
@@ -66,7 +55,6 @@ function SignUpForm() {
             </div>
 
             <div id="container">
-
                 <div id="header">
                     <h2 id="text">Sign Up</h2>
                     <div id="underline"></div>
@@ -107,12 +95,12 @@ function SignUpForm() {
                 </div>
                 <div id="login" className="login-link">
                     <Link to='/LogIn' className="login-link-text">
-                        Don't have an account yet? Log in!  
+                        Already have an account? Log in!
                     </Link>
                 </div>
             </div>
 
-            <div id="footer-container">
+            <div id="footerSignUp-container">
                 <Footer />
             </div>
         </>

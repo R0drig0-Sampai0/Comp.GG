@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import './NavBar.css'
+import { AiOutlineUser } from "react-icons/ai";
 
 function NavBar() {
+
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
 
     return (
         <nav id="navbar">
@@ -28,10 +36,17 @@ function NavBar() {
                             Tournaments
                         </Link>
                     </li>
-                    <li id="nav-item">
-                        <Link to='/SignUp' id="nav-links">
-                            Sign Up
-                        </Link>
+                    <li id="user" onClick={toggleDropdown}>
+                        <AiOutlineUser id="user-ico" />
+                        {dropdownVisible && (
+                            <ul id="dropdown-menu">
+                                <li>
+                                    <Link to='/SignUp'>
+                                        Sign Up
+                                    </Link>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                 </ul>
             </div>

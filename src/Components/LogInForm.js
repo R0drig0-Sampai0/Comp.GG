@@ -1,13 +1,17 @@
 import './SignUpForm.css'
 import NavBar from './NavBar';
 import Footer from "./Footer";
+import UserDashboard from './UserDashboard';
+import Axios from 'axios';
 
 /*    API    */
 import { useState } from "react";
 import { useEffect } from "react";
-import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function LogInForm() {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -15,38 +19,31 @@ function LogInForm() {
     const [authenticated, setAuthenticated] = useState(false);
     const [loginError, setLoginError] = useState("");
 
-    
-
-    /*----------------------------------------------- LOG IN ------------------------------------------------------------------*/
-    useEffect(() => {
-        console.log("Component mounted");
-        fetchData();
-    }, []);
-    
-    const fetchData = async () => {
-        try {
-            console.log("Fetching data...");
-            const response = await Axios.get("https://api.sheety.co/037d88aaecba761271a0507a7ef574e9/user/userLogin");
-            console.log("Data fetched successfully:", response.data.userLogin);
-            setLogin(response.data.userLogin);
-        } catch (error) {
-            console.error("Error fetching user data:", error);
-        }
+    // fetches the data user data from the API (GET)
+    const fetchData = () => {
+        Axios.get("https://sheetdb.io/api/v1/e5yzqf59suepx?sheet=User_Login")
+            .then((res) => {
+                setLogin(res.data);
+            }
+            );
     };
 
+    /*----------------------------------------------- LOG IN ------------------------------------------------------------------*/
     const handleLogin = () => {
-        console.log("Button was clicked")
+        // checks if the username and password match with the ones in the API
         const user = login.find(
             (user) => user.username === username && user.password === password
         );
 
         if (user) {
-            // Set authenticated to true if login is successful
+            // Successful login
             setAuthenticated(true);
-            // Perform any other actions upon successful login
+            setLoginError("");
+            navigate('/UserDashboard')
         } else {
-            // Set loginError if login fails
-            setLoginError("Invalid username or password");
+            // Invalid User
+            setAuthenticated(false);
+            setLoginError("Wrong Credentials.");
         }
     };
 
@@ -61,41 +58,48 @@ function LogInForm() {
                 <NavBar />
             </div>
 
-            <div id="container">
-
-                <div id="header">
-                    <h2 id="text">Log In</h2>
-                    <div id="underline"></div>
+            {authenticated ? (
+                <div id="UserDashboard">
+                    <UserDashboard />
                 </div>
+            ) : (
 
-                <div id="inputs">
-                    <div id="input">
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
+                <div id="container">
+
+                    <div id="header">
+                        <h2 id="text">Log In</h2>
+                        <div id="underline"></div>
                     </div>
 
-                    <div id="input">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div id="forgot-password">Forgot your password? <span>Click here!</span></div>
-                <div id="submit-container">
-                    <div id="submit" onClick={handleLogin}>
-                        Log in
-                    </div>
-                </div>
-            </div>
+                    <div id="inputs">
+                        <div id="input">
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
 
-            <div id="footer-container">
+                        <div id="input">
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div id="forgot-password">Forgot your password? <span>Click here!</span></div>
+                    <div id="submit-container">
+                        <div id="submit" onClick={handleLogin}>
+                            Log in
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <div id="footerSignUp-container">
                 <Footer />
             </div>
         </>

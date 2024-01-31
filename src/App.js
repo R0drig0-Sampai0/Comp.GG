@@ -7,6 +7,7 @@ import Tournaments from './Components/Tournaments';
 import Explore from './Components/Explore';
 import LogInForm from './Components/LogInForm'
 import CreateEvent from './Components/CreateEvent';
+import UserDashboard from './Components/UserDashboard';
 
 function App() {
 
@@ -17,8 +18,9 @@ function App() {
         <Route path="/SignUp" element={<SignUpForm />} />
         <Route path="/tournaments" element={<Tournaments />} />
         <Route path="/explore" element={<Explore />}/>
-        <Route path="LogIn" element={<LogInForm />} />
-        <Route path="CreateEvent" element={<CreateEvent />} />
+        <Route path="/LogIn" element={<LogInForm />} />
+        <Route path="/CreateEvent" element={<CreateEvent />} />
+        <Route path="/UserDashboard" element={<UserDashboard />} />
       </Routes>
     </Router>
   );

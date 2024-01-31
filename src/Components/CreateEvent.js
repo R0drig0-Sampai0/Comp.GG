@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import './CreateEvent.css';
 
 function createEvent() {
 
