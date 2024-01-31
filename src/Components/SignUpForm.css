@@ -50,7 +50,7 @@
     border-radius: 6px;
 }
 
-#input input{
+#input input {
     height: 50px;
     width: 400px;
     background: transparent;
@@ -68,19 +68,19 @@
     font-family: monospace;
 }
 
-#forgot-password span{
+#forgot-password span {
     color: #242424;
     cursor: pointer;
     font-family: monospace;
 }
 
-#submit-container{
+#submit-container {
     display: flex;
     gap: 30px;
     margin: 60px auto;
 }
 
-#submit{
+#submit {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +96,7 @@
 }
 
 #submit:hover {
-    background: rgb(100, 100, 100);   
+    background: rgb(100, 100, 100);
     border: 1px solid #242424;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .login-link {
-    margin-top: 20px; 
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -121,4 +121,95 @@
 
 .login-link-text:hover {
     text-decoration: underline;
+}
+
+#UserDashboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+#profile-pic-container {
+    margin-top: 100px;
+    padding: 10px;
+    text-align: center;
+    /* Center text inside profile-pic-container */
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    /* Center profile-pic horizontally */
+}
+
+#change-username-container,
+#delete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#change-username {
+    width: 200px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#dashboardtext {
+    margin-top: 20px;
+    font-size: 25px;
+    color: white;
+    font-family: monospace;
+}
+
+#delete-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+#submit-new-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 59px;
+    color: #fff;
+    background: #242424;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: monospace;
+    margin-top: 10px;
+}
+
+#submit-new-username:hover {
+    background: rgb(100, 100, 100);
+    border: 1px solid white;
+}
+
+#login-error {
+    color: #ff0000;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 60px;
+    font-family: monospace;
 }

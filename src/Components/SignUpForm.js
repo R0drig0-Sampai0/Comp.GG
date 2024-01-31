@@ -1,50 +1,48 @@
 import './SignUpForm.css'
 import NavBar from './NavBar';
 import Footer from "./Footer";
-import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-
-/*    API    */
+/* API */
 import { useState } from "react";
 import { useEffect } from "react";
 
 function SignUpForm() {
-
     const navigate = useNavigate();
 
-    // declares a state variable "newUsername" which will be used to create a new user account
+    // State for user registration
     const [newUsername, setNewUsername] = useState("");
-    // declares a state variable "newPassword" which will be used to create a new user account
     const [newPassword, setNewPassword] = useState("");
-    // declares a state variable "newEmail" which will be used to create a new user account
     const [newEmail, setNewEmail] = useState("");
-    // declares a state variable "authenticated" which will ckeck if the user has been added
     const [userAdded, setUserAdded] = useState(false);
 
+    // State for user login
     const [usedusername, setUsername] = useState("");
     const [usedpassword, setPassword] = useState("");
     const [usedlogin, setLogin] = useState([]);
     const [authenticated, setAuthenticated] = useState(false);
     const [loginError, setLoginError] = useState("");
 
-    // fetches the data user data from the API (GET)
+    // State for updating username
+    const [newUpdatedUsername, setNewUpdatedUsername] = useState("");
+
+    // Fetch user data from API
     const fetchData = () => {
         Axios.get("https://sheetdb.io/api/v1/e5yzqf59suepx?sheet=User_Login")
             .then((res) => {
                 setLogin(res.data);
-            }
-            );
+            });
     };
 
+    // Login handling
     const handleLogin = () => {
-
         if (!usedusername || !usedpassword) {
             alert("Please fill in all the required fields.");
             return;
         }
 
-        // checks if the username and password match with the ones in the API
+        // Check if the username and password match with the ones in the API
         const user = usedlogin.find(
             (user) => user.Username === usedusername && user.Password === usedpassword
         );
@@ -53,21 +51,23 @@ function SignUpForm() {
             // Successful login
             setAuthenticated(true);
             setLoginError("");
+            console.log("User Logged In Successfully");
         } else {
             // Invalid User
             setAuthenticated(false);
-            setLoginError("Wrong Credentials.");
+            setLoginError("Wrong Credentials. Please try again");
         }
     };
 
+    // Add a new user
     const addUser = () => {
-
         // Check if any of the required fields are empty
         if (!newUsername || !newEmail || !newPassword) {
             alert("Please fill in all the required fields.");
             return;
         }
 
+        // Send a POST request to add a new user
         fetch("https://sheetdb.io/api/v1/e5yzqf59suepx?sheet=User_Login", {
             method: 'POST',
             headers: {
@@ -92,6 +92,55 @@ function SignUpForm() {
             })
     }
 
+    // Remove a user
+    const removeUser = () => {
+        if (usedusername) {
+            // Send a DELETE request to remove a user
+            fetch(
+                `https://sheetdb.io/api/v1/e5yzqf59suepx/Username/${usedusername}?sheet=User_Login`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        'Accept': "application/json",
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    fetchData();
+                    navigate('/');
+                })
+                .catch((error) => {
+                    console.error("Error deleting user:", error);
+                });
+        }
+    };
+
+    // Update username
+    const updateUsername = () => {
+        fetch(
+            `https://sheetdb.io/api/v1/e5yzqf59suepx/Username/${usedusername}?sheet=User_Login`,
+            {
+                method: "PATCH",
+                headers: {
+                    'Accept': "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    data: {
+                        'Username': newUpdatedUsername
+                    }
+                })
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                fetchData();
+            })
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -107,7 +156,27 @@ function SignUpForm() {
 
                     {authenticated ? (
                         <div id="UserDashboard">
-                            <h1>Hello</h1>
+
+                            <div id="profile-pic-container">
+                                <h1 id="dashboardtext">Hello {usedusername}</h1>
+                                <div id="profile-pic"></div>
+                            </div>
+                            <div id="change-username-container">
+                                <h1 id="dashboardtext">Change Username</h1>
+                                <input id="change-username"
+                                    type="text"
+                                    placeholder="Username"
+                                    value={newUpdatedUsername}
+                                    onChange={(e) => setNewUpdatedUsername(e.target.value)}
+                                />
+                                <div id="submit-new-username" onClick={updateUsername}>
+                                    Set new Username
+                                </div>
+                            </div>
+                            <div id="delete-container">
+                                <h1 id="dashboardtext">Delete Account</h1>
+                                <div id="delete-btn" onClick={removeUser}>Delete</div>
+                            </div>
                         </div>
                     ) : (
 
@@ -139,6 +208,9 @@ function SignUpForm() {
                                     />
                                 </div>
                             </div>
+                            {loginError && (
+                                <div id="login-error">{loginError}</div>
+                            )}
                             <div id="forgot-password">Forgot your password? <span>Click here!</span></div>
                             <div id="submit-container">
                                 <div id="submit" onClick={handleLogin}>
