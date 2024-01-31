@@ -2,14 +2,12 @@ import './SignUpForm.css'
 import NavBar from './NavBar';
 import Footer from "./Footer";
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 /* API */
 import { useState } from "react";
 import { useEffect } from "react";
 
 function SignUpForm() {
-    const navigate = useNavigate();
 
     // State for user registration
     const [newUsername, setNewUsername] = useState("");
@@ -110,7 +108,6 @@ function SignUpForm() {
                 .then((data) => {
                     console.log(data);
                     fetchData();
-                    navigate('/');
                 })
                 .catch((error) => {
                     console.error("Error deleting user:", error);

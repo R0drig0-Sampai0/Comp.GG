@@ -35,18 +35,6 @@
     flex-direction: column;
 }
 
-
-/*UPCOMING TOURNAMENTS*/
-#upcoming-tournaments-container {
-    background: #242424;
-    color: white;
-    margin-left: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
 .box-criar-tournament{
     background: 242424;
     color: white;
@@ -55,6 +43,19 @@
     margin-bottom: 20px;
     width: 70px;
 }
+
+
+/*UPCOMING TOURNAMENTS*/
+#upcoming-tournaments-container {
+    background: #242424;
+    color: white;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 
 h1 {
     width: 100%;
@@ -67,10 +68,10 @@ h1 {
     color: #242424;
     opacity: 1;
     border-radius: 10px;
-    margin-right: 20px; /* Adjust as needed for spacing between boxes */
+    margin-right: 20px; 
     margin-bottom: 20px;
-    height: 240px;
-    width: 250px; /* Adjust as needed for the width of each box */
+    height: 440px;
+    width: 300px; 
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -82,85 +83,6 @@ h1 {
     transform: scale(1.05);
     cursor: pointer;
 }
-
-.box-upcoming-tournaments h2 {
-    margin-bottom: 10px;
-}
-
-
-/*LIVE TOURNAMENTS*/
-#live-tournaments-container {
-    background: #242424;
-    color: white;
-    margin-left: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.box-live-tournaments {
-    background: white; 
-    color: #242424;
-    opacity: 1;
-    border-radius: 10px;
-    margin-right: 20px; /* Adjust as needed for spacing between boxes */
-    margin-bottom: 20px;
-    height: 240px;
-    width: 250px; /* Adjust as needed for the width of each box */
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-in-out;
-
-}
-
-.box-live-tournaments:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-.box-live-tournaments h2 {
-    margin-bottom: 10px;
-}
-
-/*Recently Finished*/
-#finished-tournaments-container {
-    background: #242424;
-    color: white;
-    margin-left: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.box-finished-tournaments {
-    background: white; 
-    color: #242424;
-    opacity: 1;
-    border-radius: 10px;
-    margin-right: 20px; /* Adjust as needed for spacing between boxes */
-    margin-bottom: 20px;
-    height: 240px;
-    width: 250px; /* Adjust as needed for the width of each box */
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-in-out;
-}
-
-.box-finished-tournaments:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-.box-finished-tournaments h2 {
-    margin-bottom: 10px;
-}
-
-
-
 
 /*Find Event Search Bar*/
 #search-container {
@@ -194,4 +116,52 @@ h1 {
 
 #searchButton:hover {
     background-color: grey;
+}
+
+.box-upcoming-tournaments img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+
+.box-upcoming-tournaments h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: monospace;
+    text-align: center;
+    border-top: 1px solid #242424;
+    padding-top: 5px;
+}
+
+.box-upcoming-tournaments p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: monospace;
+    color: rgb(118, 118, 118);
+}
+
+.box-upcoming-tournaments div {
+    flex-grow: 1;
+}
+
+.box-upcoming-tournaments h3 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: monospace;
+    margin-top: 0;
+    color: rgb(118, 118, 118);
+}
+
+.box-upcoming-tournaments button {
+    background-color: rgb(118, 118, 118);
+    color: white;
+    border: 0;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.box-upcoming-tournaments button:hover {
+    background-color: #242424;
+    color: white;
 }
